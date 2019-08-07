@@ -14,16 +14,21 @@
   </head>
 
   <body>
-    <nav class="nav justify-content-between">
-      <%= link_to 'Restaurants', restaurants_path, class: 'nav-link' %>
-      <%= link_to 'Add restaurant', new_restaurant_path, class: 'nav-link' %>
+    <nav class="nav">
+      <div class="nav-content">
+        <%= link_to 'Restaurants', restaurants_path %>
+        <%= link_to 'Add restaurant', new_restaurant_path %>
+      </div>
     </nav>
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-8">
+        <div class="col-lg-10">
           <%= yield %>
         </div>
       </div>
     </div>
+    <footer>
+      <p>Made with ♥️ at Le Wagon</p>
+    </footer>
   </body>
 </html>

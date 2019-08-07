@@ -1,15 +1,48 @@
-<div class="restaurant-img" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://loremflickr.com/800/400/<%= @restaurant.category %>,food/all');"><h1><%= @restaurant.name %></h1></div>
+<div class="restaurant-img" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.3)), url('https://source.unsplash.com/1600x800/?<%= @restaurant.category %>,food');">
+  <h1>
+    <%= @restaurant.name %>
+  </h1>
+  <p class="banner-description">
+    <em><%= @restaurant.category %></em> | <%= @restaurant.address %>
+  </p>
+  <div class="edit-icons">
+    <%= link_to edit_restaurant_path do %>
+      <i class="fas fa-pencil-ruler"></i>
+    <% end %>&emsp;|&emsp;
+    <%= link_to restaurant_path, method: :delete, data: { confirm: "Are you sure?" } do %>
+      <i class="fas fa-trash-alt"></i>
+    <% end %>
+  </div>
+  <div class="back-btn">
+  <%= link_to restaurants_path do %>
+    <i class="fas fa-undo"></i>
+  <% end %>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_restaurant_path %> | <%= link_to 'Delete', restaurant_path, method: :delete, data: { confirm: "Are you sure?" } %>
-<p><%= @restaurant.category %></p>
-
-<p><%= @restaurant.address %></p>
-
-<p><%= link_to "Add a review", new_restaurant_review_path(@restaurant) %></p>
-<ul>
+<div class="reviews-header">
+  <h2>Reviews</h2>
+  <p><%= link_to "Add a review", new_restaurant_review_path(@restaurant) %></p>
+</div>
+<ul class="reviews-list">
   <% @reviews.each do |review| %>
-    <li><%= review.rating %> stars<br><%= review.content %></li>
+    <li>
+      <% if review.rating == 5 %>
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+      <% elsif review.rating == 4 %>
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+      <% elsif review.rating == 3 %>
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+      <% elsif review.rating == 2 %>
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+      <% elsif review.rating == 1 %>
+        <i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+      <% else %>
+        <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+      <% end %>
+      <p>
+      <%= review.content %>
+      </p>
+    </li>
   <% end %>
 </ul>
-
-<%= link_to 'Back', restaurants_path %>

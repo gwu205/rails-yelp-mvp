@@ -14,13 +14,38 @@
 @import "restaurants";
 
 body {
-  // background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1526234362653-3b75a0c07438?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80');"
-  // background-size: cover;
-  // background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+}
+
+body, h1, h2, h3 {
   font-family: 'Inter', sans-serif;
 }
 
+.container {
+  min-height: calc(100vh - 90px);
+}
+
 nav {
+  padding: 0 30px !important;
   background: white;
   border-bottom: 1px solid #dfdfdf;
+
+  .nav-content {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 100%;
+    padding: 10px;
+    max-width: 1000px;
+  }
+}
+
+footer {
+  p {
+    vertical-align: middle;
+    text-align: center;
+    background: white;
+    height: 40px;
+  }
 }

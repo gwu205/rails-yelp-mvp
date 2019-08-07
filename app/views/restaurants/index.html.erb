@@ -3,7 +3,7 @@
 <ul class="restaurants-list">
   <% @restaurants.each do |restaurant| %>
       <li class="restaurant-card">
-        <img src="https://loremflickr.com/60/60/<%= restaurant.category %>,food/all?random=<%= restaurant.id %>" alt="<%= restaurant.name %>">
+        <img src="https://source.unsplash.com/200x200/?<%= restaurant.category %>,food/<%= restaurant.id %>" alt="<%= restaurant.name %>">
         <div class="card-content">
           <p class="card-heading"><%= link_to restaurant_path(restaurant) do %>
             <%= restaurant.name %>
